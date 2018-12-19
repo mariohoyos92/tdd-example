@@ -1,7 +1,12 @@
 const express = require("express");
-const { json } = require("body-parser");
-
 const app = express();
-app.use(json());
+
+const { cars } = require("./data");
+
+app.get("/cars", (req, res, next) => {
+  res.status(200).json({
+    cars
+  });
+});
 
 module.exports = app;
